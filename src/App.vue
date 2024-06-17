@@ -44,6 +44,13 @@ function addNormalRoutes() {
 }
 
 function addAdminRoutes() {
+  if (!router.hasRoute('About')) {
+    router.addRoute({
+      path: '/about',
+      name: 'About',
+      component: () => import('@/views/About.vue'),
+    });
+  }
   // 2. 若重複添加相同 name 的路由，則會先刪除原路由，再添加新路由
   router.addRoute({
     path: '/admin',
